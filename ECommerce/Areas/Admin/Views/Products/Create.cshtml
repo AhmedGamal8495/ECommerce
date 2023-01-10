@@ -1,0 +1,77 @@
+﻿@model Product
+<div class="content">
+    <div class="container-fluid">
+        <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Create</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form role="form" asp-action="create" enctype="multipart/form-data" method="post">
+                    <div class="card-body">
+                        <div class="form-group" >
+                            
+                            <label for="exampleInputEmail1">product Name</label>
+                            <span asp-validation-for="ProName"></span>
+                            <input type="text" asp-for="ProName"
+                                   class="form-control"
+                                   placeholder="Enter product Name">
+                            
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Category</label
+                            <span asp-validation-for="category"></span>
+                            <select type="text" class="form-control" asp-for="CatId"
+                                    asp-items="ViewBag.categoryname">
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Description</label>
+                            <span asp-validation-for="Description"></span>
+                            <input type="text" asp-for="Description"
+                                   class="form-control"
+                                   placeholder="Enter product Description">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">product price</label>
+                            <span asp-validation-for="Price"></span>
+                            <input type="text" asp-for="Price"
+                                   class="form-control"
+                                   placeholder="Enter product price">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputFile">Choose Image</label>
+                            <span asp-validation-for="ProImage"></span>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" name="file" asp-for="file" class="custom-file-input">
+                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Upload</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.card-body -->
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+

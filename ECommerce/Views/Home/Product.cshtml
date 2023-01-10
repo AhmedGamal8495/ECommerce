@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Product";
+}
+
+<!-- Shop Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+
+        <!-- Shop Product Start -->
+        <div class="col-lg-12 col-md-8">
+            <div class="row pb-3">
+
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
+                        <div class="product-item bg-light mb-4">
+                            <div class="product-img position-relative overflow-hidden">
+                                <img class="img-fluid w-100" src="~/product/@item.ProImage" alt="@item.ProName">
+                                <div class="product-action">
+                                    <a class="btn btn-outline-dark btn-square" asp-action="ProductDetails" asp-route-Id="@item.Id" asp-controller="Home">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="text-center py-4">
+                                <a class="h6 text-decoration-none text-truncate" href="">@item.ProName</a>
+                                <div class="d-flex align-items-center justify-content-center mt-2">
+                                    <h5>@item.Price</h5><h6 class="text-muted ml-2"></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                
+                
+
+                <div class="col-12">
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            @if (ViewBag.currentpage - 1 > 0)
+                            {
+                                <li class="page-item ">
+                                    <a class="page-link" href="/Home/Product/?page=@(ViewBag.currentpage-1)">
+                                        Previous</a>
+                                </li>
+
+                            }
+                            @if (ViewBag.currentpage + 1 <= ViewBag.pagecount)
+                            {
+                            
+                                <li class="page-item">
+                                    <a class="page-link" href="/Home/Product/?page=@(ViewBag.currentpage +1)">
+                                        Next</a>
+                                </li>
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Shop Product End -->
+    </div>
+</div>
+<!-- Shop End -->
